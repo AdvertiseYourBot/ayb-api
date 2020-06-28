@@ -11,13 +11,14 @@ class Manager {
     const res = await axios.get(`${this.url}/stats`);
     const data = res.data;
 
-    const percentPending = Math.round(
-      (data.pending_approvals / data.bots) * 100
-    );
+    const pending = parseInt(data.pending_approvals);
+    const total = parseInt(data.bots);
+    const percentPending = Math.round((pending / total) * 100);
+
     const info = {
       bots: {
-        total: data.bots,
-        pending: data.pending_approvals,
+        total,
+        pending,
         percentPending,
       },
     };
@@ -25,10 +26,25 @@ class Manager {
     return info;
   }
 
-  async fetchBot(id) {
-    if (!id || typeof id !== "string")
+  async fetchCategory(id) {
+    if (typeof id !== "string")
       throw new Error(
-        `Manager#fetchBot requires a string paramater. Received ${typeof id}`
+        `Manager#fetchCategory requires a string paramater (id). Received ${typeof id}`
+      );
+
+    const url = `${this.url}/category?id=${id}`;
+    const res = await axios.get(url);
+    const data = res.data;
+
+    if (!data.success) return data;
+
+    return new Category(data.id, data.name, data.slug);
+  }
+
+  async fetchBot(id) {
+    if (typeof id !== "string")
+      throw new Error(
+        `Manager#fetchBot requires a string paramater (id). Received ${typeof id}`
       );
 
     const url = `${this.url}/bot?${id}`;
