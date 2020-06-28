@@ -9,8 +9,8 @@ The official AYB api wrapper
 ###### Methods
 - fetchStats
   - Fetch overall site statistics for ayblisting.com
-  - Example: ```js
-
+  - Example:
+  ```js
     const AYB = require("ayb-api");
     const manager = new AYB();
 
@@ -24,5 +24,4 @@ The official AYB api wrapper
         },
       }
     */
-
   ```
