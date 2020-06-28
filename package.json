@@ -1,7 +1,7 @@
 {
   "name": "ayb-api",
   "version": "1.0.0",
-  "description": "The Official AYB api wrapper",
+  "description": "The official AYB api wrapper",
   "main": "src/index.js",
   "repository": {
     "type": "git",
