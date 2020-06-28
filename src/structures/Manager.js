@@ -3,9 +3,8 @@ const Bot = require("./Bot");
 const Category = require("./Category");
 
 class Manager {
-  constructor(client) {
+  constructor() {
     this.url = "https://api.ayblisting.com";
-    this.client = client;
   }
 
   async fetchStats() {
@@ -43,10 +42,9 @@ class Manager {
     const cData = catRes.data;
 
     const category = new Category(data.category, cData.name, cData.slug);
-    const users = this.client.users.cache || this.client.users;
 
     return new Bot({
-      owner: users.get(data.ownerid) || { id: data.ownerid },
+      ownerID: data.ownerid,
       clientID: data.clientid,
       username: data.botname,
       avatarURL: data.botavatar,
