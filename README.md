@@ -3,8 +3,6 @@ The official AYB api wrapper
 
 ## Classes
 
----
-
 #### Manager
 ###### Methods
 - fetchStats
