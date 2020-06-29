@@ -2,7 +2,9 @@
 
 The official AYB api wrapper
 
-## Example
+## Examples
+
+#### Discord Bot
 
 ```js
 const {
@@ -89,7 +91,7 @@ client.login("<TOKEN>");
       username: "Cool Bot",
       avatarURL: "https://cdn.discordapp.com/avatars/681940967615627276/9e876b4b6cf61b343c4bd345bcf69ff5.jpg",
       votes: 2,
-      category: 17,
+      categoryID: 12,
       approved: true,
       certified: false,
       premium: false,
@@ -126,3 +128,102 @@ client.login("<TOKEN>");
     }
   */
   ```
+
+##### Properties
+
+- String: url
+  - The base url for api requests
+
+#### Bot
+
+##### Methods
+
+- fetchCategory()
+
+  - Fetch the category of that bot
+  - Example
+
+  ```js
+  const AYB = require("ayb-api");
+  const manager = new AYB();
+
+  manager.fetchBot("123456789101112").then(async (bot) => {
+    bot.fetchCategory().then(console.log);
+    /*
+      Category {
+        name: "Music",
+        slug: "music",
+        id: "12"
+      }
+    */
+  });
+  ```
+
+##### Properties
+
+- Manager: \$manager
+
+  - The manager that fetched this bot
+
+- String: ownerID
+
+  - The id of this bot's owner
+
+- String: id
+
+  - The id of this bot
+
+- String: username
+
+  - This bot's username
+
+- String: avatarURL
+
+  - The direct url for this bot's avatar
+
+- Number: votes
+
+  - The amount of votes this bot has on ayblisting.com
+
+- String: categoryID
+
+  - The id of this bot's category
+
+- Boolean: approved
+
+  - Whether this bot is approved or not
+
+- Boolean: certified
+
+  - This bot's certification status
+
+- Boolean: premium
+
+  - This bot's premium status
+
+- String: prefix
+
+  - The prefix of this bot
+
+- String: permissions
+
+  - The permissions integer for this bot
+
+- String: library
+
+  - The library used to create this bot
+
+- String: website
+
+  - The url to this bot's website (empty if none)
+
+- String: github
+
+  - The url to this bot's GitHub repository (empty if none)
+
+- String: supportServer
+
+  - The invite url for this bot's support server
+
+- String: invite
+  - The invite url for this bot

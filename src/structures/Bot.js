@@ -4,7 +4,7 @@ class Bot {
   constructor(
     manager,
     {
-      owner,
+      ownerID,
       clientID,
       username,
       avatarURL,
@@ -23,7 +23,7 @@ class Bot {
     }
   ) {
     this.$manager = manager;
-    this.owner = owner;
+    this.ownerID = ownerID;
     this.id = clientID;
     this.username = username;
     this.avatarURL = avatarURL;

@@ -62,7 +62,7 @@ class Manager {
       clientID: data.clientid,
       username: data.botname,
       avatarURL: data.botavatar,
-      votes: data.score,
+      votes: parseInt(data.score),
       categoryID: data.category,
       approved: data.approved,
       certified: data.certified,
