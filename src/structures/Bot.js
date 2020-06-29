@@ -40,6 +40,7 @@ class Bot {
     this.github = github;
     this.supportServer = `https://discord.com/invite/${supportServerCode}`;
     this.invite = `https://discord.com/oauth2/authorize?client_id=${this.id}&scope=bot&permissions=${this.permissions}`;
+    this.url = `https://ayblisting.com/bots/${this.id}`;
   }
 
   async fetchCategory() {
