@@ -38,7 +38,11 @@ class Manager {
 
     if (!data.success) return data;
 
-    return new Category(data.id, data.name, data.slug);
+    return new Category(this, {
+      id: data.id,
+      name: data.name,
+      slug: data.slug,
+    });
   }
 
   async fetchBot(id) {
@@ -53,19 +57,13 @@ class Manager {
 
     if (!data.success) return data;
 
-    const catURL = `${this.url}/category?id=${data.category}`;
-    const catRes = await axios.get(catURL);
-    const cData = catRes.data;
-
-    const category = new Category(data.category, cData.name, cData.slug);
-
-    return new Bot({
+    return new Bot(this, {
       ownerID: data.ownerid,
       clientID: data.clientid,
       username: data.botname,
       avatarURL: data.botavatar,
       votes: data.score,
-      category,
+      categoryID: data.category,
       approved: data.approved,
       certified: data.certified,
       premium: data.premium,

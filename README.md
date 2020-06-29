@@ -60,6 +60,7 @@ The official AYB api wrapper
       website: "https://coolbot.xyz",
       github: "https://github.com/coolguy/coolbot",
       supportServerCode: "Ob68h3f",
+      invite: "https://discord.com/oauth2/authorize?client_id=123456789101112&scope=bot&permissions=523627856"
     }
   */
   ```

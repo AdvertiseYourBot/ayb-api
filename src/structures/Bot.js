@@ -1,28 +1,34 @@
+const axios = require("axios");
+
 class Bot {
-  constructor({
-    owner,
-    clientID,
-    username,
-    avatarURL,
-    votes,
-    category,
-    approved,
-    certified,
-    premium,
-    prefix,
-    permissions,
-    library,
-    description,
-    website,
-    github,
-    supportServerCode,
-  }) {
+  constructor(
+    manager,
+    {
+      owner,
+      clientID,
+      username,
+      avatarURL,
+      votes,
+      categoryID,
+      approved,
+      certified,
+      premium,
+      prefix,
+      permissions,
+      library,
+      description,
+      website,
+      github,
+      supportServerCode,
+    }
+  ) {
+    this.$manager = manager;
     this.owner = owner;
     this.id = clientID;
     this.username = username;
     this.avatarURL = avatarURL;
     this.votes = votes;
-    this.category = category;
+    this.categoryID = categoryID;
     this.approved = approved;
     this.certified = certified;
     this.premium = premium;
@@ -33,9 +39,13 @@ class Bot {
     this.website = website;
     this.github = github;
     this.supportServer = `https://discord.com/invite/${supportServerCode}`;
+    this.invite = `https://discord.com/oauth2/authorize?client_id=${this.id}&scope=bot&permissions=${this.permissions}`;
   }
 
-  async fetchCategory() {}
+  async fetchCategory() {
+    const res = await this.$manager.fetchCategory(this.categoryID);
+    return res;
+  }
 }
 
 module.exports = Bot;

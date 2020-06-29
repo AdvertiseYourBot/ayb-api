@@ -1,5 +1,6 @@
 class Category {
-  constructor(id, name, slug) {
+  constructor(manager, { id, name, slug }) {
+    this.$manager = manager;
     this.id = id;
     this.name = name;
     this.slug = slug;
