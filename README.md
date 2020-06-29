@@ -19,14 +19,14 @@ The official AYB api wrapper
 
   manager.fetchStats().then(console.log);
   /*
-      {
-        bots: {
-          total: 138,
-          pending: 4,
-          percentPending: 3,
-        },
-      }
-    */
+    {
+      bots: {
+        total: 138,
+        pending: 4,
+        percentPending: 3,
+      },
+    }
+  */
   ```
 
 - fetchBot(String: id)
@@ -61,7 +61,7 @@ The official AYB api wrapper
       github: "https://github.com/coolguy/coolbot",
       supportServerCode: "Ob68h3f",
     }
-    */
+  */
   ```
 
 - fetchCategory(String: id)
@@ -75,10 +75,10 @@ The official AYB api wrapper
 
   manager.fetchBot("12").then(console.log);
   /*
-  Category {
-    name: "Music",
-    slug: "music",
-    id: "12"
-  }
+    Category {
+      name: "Music",
+      slug: "music",
+      id: "12"
+    }
   */
   ```
