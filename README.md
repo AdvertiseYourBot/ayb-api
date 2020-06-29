@@ -2,6 +2,49 @@
 
 The official AYB api wrapper
 
+## Example
+
+```js
+const {
+  Client,
+  MessageEmbed /* or RichEmbed if using v11 and before */,
+} = require("discord.js");
+const client = new Client();
+
+const AYB = require("ayb-api");
+const manager = new AYB();
+
+client.on("ready", () => console.log(`${client.user.tag} is online!`));
+
+client.on("message", async (msg) => {
+  if (msg.content.toLowerCase() === "!me") {
+    const me = await manager.fetchBot(client.user.id);
+    const embed = new MessageEmbed() /* or RichEmbed if using v11 and before */
+      .setAuthor(
+        client.user.tag,
+        client.user.displayAvatarURL() /* or client.user.displayAvatarURL for v11 and before */
+      )
+      .setTitle(me.description.brief)
+      .setDescription(me.description.full)
+      .setThumbnail(me.avatarURL)
+      .addField("Votes", me.votes)
+      .addField("Prefix", me.prefix)
+      .addField("Invite", me.invite)
+      .addField("Library", me.library)
+      .addField("Approved", me.approved ? "Yes" : "No")
+      .addField("Certified", me.certified ? "Yes" : "No")
+      .addField("Premium", me.premium : "Yes" : "No")
+      .addField("Website", me.website)
+      .addField("GitHub", me.github)
+      .addField("Support Server", me.supportServer);
+
+    msg.channel.send(embed);
+  }
+});
+
+client.login("<TOKEN>");
+```
+
 ## Classes
 
 #### Manager
@@ -59,7 +102,7 @@ The official AYB api wrapper
       },
       website: "https://coolbot.xyz",
       github: "https://github.com/coolguy/coolbot",
-      supportServerCode: "Ob68h3f",
+      supportServer: "https://discord.com/invite/Ob68h3f",
       invite: "https://discord.com/oauth2/authorize?client_id=123456789101112&scope=bot&permissions=523627856"
     }
   */
