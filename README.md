@@ -131,8 +131,9 @@ client.login("<TOKEN>");
 
 ###### Properties
 
-- String: url
-  - The base url for api requests
+- **String: url** `The base url for api requests`
+
+---
 
 ### Bot
 
@@ -161,53 +162,52 @@ client.login("<TOKEN>");
 
 ###### Properties
 
-- Manager: \$manager
-  - The manager that fetched this bot
+- **Manager: \$manager** `The manager that fetched this bot`
 
-- String: ownerID
-  - The id of this bot's owner
+- **String: ownerID** `The id of this bot's owner`
 
-- String: id
-  - The id of this bot
+- **String: id** `The id of this bot`
 
-- String: username
-  - This bot's username
+- **String: username** `This bot's username`
 
-- String: avatarURL
-  - The direct url for this bot's avatar
+- **String: avatarURL** `The direct url for this bot's avatar`
 
-- Number: votes
-  - The amount of votes this bot has on ayblisting.com
+- **Number: votes** `The amount of votes this bot has on ayblisting.com`
 
-- String: categoryID
-  - The id of this bot's category
+- **String: categoryID** `The id of this bot's category`
 
-- Boolean: approved
-  - Whether this bot is approved or not
+- **Boolean: approved** `Whether this bot is approved or not`
 
-- Boolean: certified
-  - This bot's certification status
+- **Boolean: certified** `This bot's certification status`
 
-- Boolean: premium
-  - This bot's premium status
+- **Boolean: premium** `This bot's premium status`
 
-- String: prefix
-  - The prefix of this bot
+- **String: prefix** `The prefix of this bot`
 
-- String: permissions
-  - The permissions integer for this bot
+- **String: permissions** `The permissions integer for this bot`
 
-- String: library
-  - The library used to create this bot
+- **String: library** `The library used to create this bot`
 
-- String: website
-  - The url to this bot's website (empty if none)
+- **String: website** `The url to this bot's website (empty if none)`
 
-- String: github
-  - The url to this bot's GitHub repository (empty if none)
+- **String: github** `The url to this bot's GitHub repository (empty if none)`
 
-- String: supportServer `The invite url for this bot's support server`
+- **String: supportServer** `The invite url for this bot's support server`
 
-- String: invite `The invite url for this bot`
+- **String: invite** `The invite url for this bot`
 
-- String: url `The ayblisting.com url for this bot`
+- **String: url** `The ayblisting.com url for this bot`
+
+---
+
+### Category
+
+###### Properties
+
+- **Manager: \$manager** `The manager that fetched this category`
+
+- **String: id** `The id of this category`
+
+- **String: name** `The name of this category`
+
+- **String: slug** `The slug of this category`
