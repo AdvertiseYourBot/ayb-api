@@ -20,6 +20,5 @@
   "homepage": "https://github.com/MatievisTheKat/ayb-api#readme",
   "dependencies": {
     "axios": "^0.19.2"
-  },
-  "devDependencies": {}
+  }
 }
