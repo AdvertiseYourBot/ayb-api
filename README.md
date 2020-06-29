@@ -14,13 +14,13 @@ const {
 const client = new Client();
 
 const AYB = require("ayb-api");
-const manager = new AYB();
+const manager = new AYB(/* [OPTIONAL] You can pass the Discord.js client here for more methods and properties */);
 
 client.on("ready", () => console.log(`${client.user.tag} is online!`));
 
 client.on("message", async (msg) => {
   if (msg.content.toLowerCase() === "!me") {
-    const me = await manager.fetchBot(client.user.id);
+    const me = await manager.fetchBot(client.user.id); //  If you pass the Discord.js client into the new Manager instance you can do Manager#fetchMe() instead of Manager#fetchBot(client.user.id);
     const embed = new MessageEmbed() /* or RichEmbed if using v11 and before */
       .setAuthor(
         client.user.tag,
@@ -54,7 +54,6 @@ client.login("<TOKEN>");
 ###### Methods
 
 - fetchStats()
-
   - Fetch overall site statistics for ayblisting.com
   - Example:
 
@@ -75,7 +74,6 @@ client.login("<TOKEN>");
   ```
 
 - fetchBot(String: id)
-
   - Fetch a bot from the site using its id
   - Example
 
@@ -111,7 +109,6 @@ client.login("<TOKEN>");
   ```
 
 - fetchCategory(String: id)
-
   - Fetch a category by id
   - Example
 
@@ -140,7 +137,6 @@ client.login("<TOKEN>");
 ###### Methods
 
 - fetchCategory()
-
   - Fetch the category of that bot
   - Example
 
@@ -164,7 +160,7 @@ client.login("<TOKEN>");
 
 - **Manager: \$manager** `The manager that fetched this bot`
 
-- **String: ownerID** `The id of this bot's owner`
+- **String: owner** `The user property for the owner of this bot (if a Discord.js v12+ client was passed when initializing the Manager). If no client was passed or no user was found then it will default to the owner's id`
 
 - **String: id** `The id of this bot`
 

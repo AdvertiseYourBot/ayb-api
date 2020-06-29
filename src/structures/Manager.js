@@ -3,8 +3,27 @@ const Bot = require("./Bot");
 const Category = require("./Category");
 
 class Manager {
-  constructor() {
+  /**
+   * @param {Client} client A Discord.js v12+ client instance [OPTIONAL]
+   */
+  constructor(client /* Discord.js v12+ only */) {
     this.url = "https://api.ayblisting.com";
+    this.client = client;
+  }
+
+  async fetchMe() {
+    if (!this.client)
+      throw new Error(
+        "Manager#fetchMe() requires the client paramater to be passed when initializing"
+      );
+
+    if (!this.client.user)
+      throw new Error(
+        "The client is not ready. Please only call Manager#fetchMe() once the user property has fully loaded on the client"
+      );
+
+    const res = await this.fetchBot(this.client.user.id);
+    return res;
   }
 
   async fetchStats() {
@@ -26,6 +45,9 @@ class Manager {
     return info;
   }
 
+  /**
+   * @param {String} id The id of the category to fetch
+   */
   async fetchCategory(id) {
     if (typeof id !== "string")
       throw new Error(
@@ -45,6 +67,9 @@ class Manager {
     });
   }
 
+  /**
+   * @param {String} id The id of the bot to fetch
+   */
   async fetchBot(id) {
     if (typeof id !== "string")
       throw new Error(
@@ -58,7 +83,9 @@ class Manager {
     if (!data.success) return data;
 
     return new Bot(this, {
-      ownerID: data.ownerid,
+      owner: this.client
+        ? this.client.users.cache.get(data.ownerid) || data.ownerid
+        : data.ownerid,
       clientID: data.clientid,
       username: data.botname,
       avatarURL: data.botavatar,
