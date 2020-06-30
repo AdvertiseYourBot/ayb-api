@@ -1,0 +1,15 @@
+name: Publish
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: npm install -g npm-cli-login
+      - run: npm-cli-login -u matievisthekat -p ${{ secrets.NPM_PASS }} -e ${{ secrets.NPM_EMAIL }}
+      - run: npm publish
