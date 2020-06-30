@@ -76,7 +76,7 @@ class Manager {
         `Manager#fetchBot requires a string paramater (id). Received ${typeof id}`
       );
 
-    const url = `${this.url}/bot?${id}`;
+    const url = `${this.url}/bot?id=${id}`;
     const res = await axios.get(url);
     const data = res.data;
 
