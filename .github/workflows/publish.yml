@@ -1,11 +1,11 @@
 name: Publish
 
 on:
-  release:
-    types: [published]
+  push:
+    branches: [master]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
