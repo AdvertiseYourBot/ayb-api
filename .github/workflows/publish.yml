@@ -10,9 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
       - run: npm install -g npm-cli-login
-      - run: npm-cli-login -u matievisthekat -p${{ secrets.NPM_PASS }} -e${{ secrets.NPM_EMAIL }}
+      - run: npm-cli-login -u matievisthekat -p ${{ secrets.NPM_PASS }} -e ${{ secrets.NPM_EMAIL }}
       - run: npm publish
