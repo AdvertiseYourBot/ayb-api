@@ -30,8 +30,8 @@ class Manager {
     const res = await axios.get(`${this.url}/stats`);
     const data = res.data;
 
-    const pending = parseInt(data.pending_approvals);
-    const total = parseInt(data.bots);
+    const pending = parseInt(data.pending_approvals ?? 0);
+    const total = parseInt(data.bots ?? 0);
     const percentPending = Math.round((pending / total) * 100);
 
     const info = {
