@@ -1,6 +1,6 @@
 # ayb-api
 
-The official Javascript AYB api wrapper
+The official Javascript AYB api wrapper. Looking for another language? [Java](https://github.com/AdvertiseYourBot/ayb-api.java), [Python](https://github.com/AdvertiseYourBot/ayb-api.py). If you would like a specific language added feel free to tell us in our [Discord server](https://discord.gg/bDsTZ29)
 
 ## Examples
 
