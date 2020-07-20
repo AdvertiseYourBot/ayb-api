@@ -1,6 +1,6 @@
 # ayb-api
 
-The official AYB api wrapper
+The official Javascript AYB api wrapper
 
 ## Examples
 
