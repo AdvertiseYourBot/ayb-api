@@ -1,6 +1,6 @@
 # ayb-api
 
-The official Javascript AYB api wrapper. Looking for another language? [Java](https://github.com/AdvertiseYourBot/ayb-api.java), [Python](https://github.com/AdvertiseYourBot/ayb-api.py). If you would like a specific language added feel free to tell us in our [Discord server](https://discord.gg/bDsTZ29)
+The official Javascript AYB api wrapper. Looking for another language? [Java](https://github.com/AdvertiseYourBot/ayb-api.java), [Python](https://github.com/AdvertiseYourBot/ayb-api.py), [C#](https://github.com/AdvertiseYourBot/ayb-api.cs). If you would like a specific language added feel free to tell us in our [Discord server](https://discord.gg/bDsTZ29)
 
 [![DeepScan grade](https://deepscan.io/api/teams/10306/projects/13032/branches/211955/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=10306&pid=13032&bid=211955)
 
