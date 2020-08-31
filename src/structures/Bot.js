@@ -1,5 +1,3 @@
-const axios = require("axios");
-
 class Bot {
   constructor(
     manager,
